@@ -10,21 +10,20 @@ export default createGlobalStyle`
   }
 
   :root {
-    --blue-dark: #03045e;
+    --blue-dark: #301896;
     --blue-medium: #0077b6;
     --blue-light: #00b4d8;
     --blue-grey: #90e0ef;
     --gray-medium: #415a77;
     --gray-light: #e0e1dd;
     --white: #fff;
-    --purple: #2b2d42;
+    --purple: #8c7abd;
     --gray: #444;
   };
 
   body,html{
     width: 100vw;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -32,7 +31,7 @@ export default createGlobalStyle`
 
     overflow-x: hidden;
 
-    background-color: var(--blue-dark);
+    background-color: var(--purple);
     color: var(--white);
     }
 

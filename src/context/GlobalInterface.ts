@@ -5,5 +5,24 @@ export interface IAuthProviderProps {
 }
 
 export interface IGlobalContext {
-  user: Object | undefined;
+  user: IUser | undefined;
+  loginUser: (dataUser: IUserLogin) => void;
+  registerUser: (dataRes: IUserRegister) => void;
+}
+
+export interface IUserLogin {
+  email: string;
+  password: string;
+}
+
+export interface IUser {
+  name: string;
+}
+
+export interface IUserRegister {
+  name: string;
+  email: string;
+  password: string;
+  type_account: string;
+  confirm_password?: string;
 }
