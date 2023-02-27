@@ -1,7 +1,6 @@
-const template = () => {
-  return (
-    <div>
-      <h1>template</h1>
-    </div>
-  );
-};
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "http://localhost:8000/api",
+  timeout: 5000,
+});
