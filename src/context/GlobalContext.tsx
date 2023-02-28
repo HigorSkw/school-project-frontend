@@ -6,8 +6,10 @@ import { api } from "../services";
 import {
   IAuthProviderProps,
   IClub,
+  IEditUser,
   IGlobalContext,
   ISubject,
+  ISubjectCreate,
   IUser,
   IUserLogin,
   IUserRegister,
@@ -24,21 +26,31 @@ export const GlobalContext = createContext<IGlobalContext>(
 );
 
 export const GlobalProvider = ({ children }: IAuthProviderProps) => {
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<IUser>();
+  const [userEdit, setUserEdit] = useState<IUser>();
   const [accountEmail, setAccountEmail] = useState<any>();
   const [users, setUsers] = useState<any>();
   const [teachers, setTeachers] = useState<IUser[]>();
   const [students, setStudents] = useState<IUser[]>();
   const [clubs, setClubs] = useState<IClub[]>();
   const [subjects, setSujects] = useState<ISubject[]>();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [editUserModal, setEditUserModal] = useState<boolean>(false);
+  const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
 
-  const token = window.localStorage.getItem("@school-token");
+  const token = localStorage.getItem("@school-token");
 
   useEffect(() => {
-    const token = window.localStorage.getItem("@school-token");
+    const token = localStorage.getItem("@school-token");
 
     if (token === null) {
       navigate("*", { replace: true });
+    }
+
+    if (token) {
+      getUsers();
+      getClubs();
+      getSubjects();
     }
   }, [token]);
 
@@ -57,7 +69,23 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       });
   };
 
+  const registerUserComponent = (dataRes: IUserRegister) => {
+    api
+      .post("/users/", dataRes)
+      .then((res) => {
+        toast.success("Conta Criada com sucesso!");
+        getUsers();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
   const getUsers = async () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
     await api
       .get("/users/")
       .then((res) => {
@@ -85,7 +113,7 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
   };
 
   const getAccount = (email: string, users: IUser[]) => {
-    const account = users.filter((elem) => elem.email === email);
+    const account = users.find((elem) => elem.email === email);
 
     setUser(account);
   };
@@ -97,13 +125,8 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
         const { access: token } = res.data;
         window.localStorage.clear();
         window.localStorage.setItem("@school-token", token);
-
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
         toast.success("Login Feito com sucesso!");
-        getUsers();
         setAccountEmail(dataUser.email);
-        getClubs();
-        getSubjects();
         navigate("/home");
       })
       .catch((err) => {
@@ -120,6 +143,9 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
   };
 
   const getClubs = async () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
     await api
       .get("/clubs/")
       .then((res) => {
@@ -132,6 +158,9 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
   };
 
   const getSubjects = async () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
     await api
       .get("/subjects/")
       .then((res) => {
@@ -140,6 +169,55 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       .catch((err) => {
         console.log(err);
         toast.error("Algo errado!");
+      });
+  };
+
+  const createSubjects = async (data: ISubjectCreate) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .post(`/subjects/teacher/${data.teacher}/`, data)
+      .then((res) => {
+        toast.success("Matéria Criada com sucesso!");
+        getSubjects();
+        getUsers();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const editUser = (data: IEditUser) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+    api
+      .patch(`users/${userEdit?.id}/`, data)
+      .then((res) => {
+        toast.success("Usuário atualizado!");
+        setUser(res.data);
+        getUsers();
+        setEditUserModal(!editUserModal);
+      })
+      .catch((err) => {
+        toast.error("Algo deu errado...");
+      });
+  };
+
+  const deleteUser = () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+    api
+      .delete(`users/${userEdit?.id}/`)
+      .then((res) => {
+        toast.success("Usuário atualizado!");
+        getUsers();
+        setDeleteUserModal(!deleteUserModal);
+      })
+      .catch((err) => {
+        toast.error("Algo deu errado...");
       });
   };
 
@@ -157,6 +235,18 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
         getUsers,
         clubs,
         subjects,
+        activeIndex,
+        setActiveIndex,
+        editUserModal,
+        setEditUserModal,
+        editUser,
+        userEdit,
+        setUserEdit,
+        deleteUserModal,
+        deleteUser,
+        setDeleteUserModal,
+        registerUserComponent,
+        createSubjects,
       }}
     >
       {children}

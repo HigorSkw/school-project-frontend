@@ -9,7 +9,6 @@ interface IClubProps {
 }
 
 export const ClubCard = ({ club }: IClubProps) => {
-  console.log(club.subjects);
   const { subjects } = useContext(GlobalContext);
 
   const filterSubjects = (data: IClub) => {
@@ -48,7 +47,9 @@ export const ClubCard = ({ club }: IClubProps) => {
       <InfoCustomer>
         <div className="info_customer_text">
           <div>
-            <h3>Turno: {shiftFind}</h3>
+            <h3>
+              Turno: {shiftFind} | Ano : {club.year}
+            </h3>
           </div>
           <div>
             <h3> Matérias:</h3>

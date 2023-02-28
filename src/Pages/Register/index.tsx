@@ -85,7 +85,7 @@ const Register = () => {
               <span>{errors.confirm_password.message}</span>
             )}
 
-            <button type="submit">Registrar</button>
+            <button type="submit">Login</button>
           </form>
           <div>
             <span>Já possui uma conta? </span>

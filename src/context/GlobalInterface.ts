@@ -6,8 +6,10 @@ export interface IAuthProviderProps {
 
 export interface IGlobalContext {
   user: IUser | undefined;
+  userEdit: IUser | undefined;
   loginUser: (dataUser: IUserLogin) => void;
   registerUser: (dataRes: IUserRegister) => void;
+  registerUserComponent: (dataRes: IUserRegister) => void;
   logoutUser: () => void;
   teachers: IUser[] | undefined;
   students: IUser[] | undefined;
@@ -16,6 +18,16 @@ export interface IGlobalContext {
   getAccount: (email: string, users: IUser[]) => void;
   clubs: IClub[] | undefined;
   subjects: ISubject[] | undefined;
+  activeIndex: number;
+  setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+  editUserModal: boolean;
+  setEditUserModal: React.Dispatch<React.SetStateAction<boolean>>;
+  editUser: (data: IEditUser) => void;
+  setUserEdit: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  deleteUser: () => void;
+  deleteUserModal: boolean;
+  setDeleteUserModal: React.Dispatch<React.SetStateAction<boolean>>;
+  createSubjects: (data: ISubjectCreate) => Promise<void>;
 }
 
 export interface IUserLogin {
@@ -29,6 +41,16 @@ export interface IUser {
   email: string;
   type_account: string;
   club: IClub;
+}
+
+export interface IEditUser {
+  id?: string;
+  name?: string;
+  email?: string;
+  type_account?: string;
+  club?: IClub;
+  password?: string;
+  confirm_password?: string;
 }
 
 export interface IUserRegister {
@@ -49,12 +71,19 @@ export interface IGrade {
 export interface IClub {
   id: string;
   name: string;
+  year: string;
   shift: string;
   subjects: string[];
 }
 
 export interface ISubject {
-  id: string;
+  id?: string;
   name: string;
   teacher?: IUser;
+}
+
+export interface ISubjectCreate {
+  id?: string;
+  name: string;
+  teacher: IUser;
 }
