@@ -1,11 +1,19 @@
 import { Footer } from "../../components/Footer";
-import { Header } from "../../components/Header";
+import SectionTeachers from "../../components/Teachers";
+import CompleteHeader from "../../components/Header";
+import { SideMenu } from "../../components/SideMenu";
+import { MainContainer } from "./style";
+import SectionClubs from "../../components/Clubs";
 
 const Home = () => {
   return (
     <div>
-      <Header />
-      <h1>Esta é a página de Home!</h1>
+      <CompleteHeader />
+      <MainContainer>
+        <SideMenu />
+        <SectionTeachers />
+        <SectionClubs />
+      </MainContainer>
       <Footer />
     </div>
   );
