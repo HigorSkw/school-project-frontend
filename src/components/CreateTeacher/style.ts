@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ContainerRegister = styled.main`
-  width: 100vw;
-  height: 100vh;
+export const ContainerRegister = styled.div`
+  width: 40%;
+  /* height: 100vh; */
 
   display: flex;
   align-items: center;
@@ -12,19 +12,8 @@ export const ContainerRegister = styled.main`
   background-color: var(--purple);
   overflow: hidden;
 
-  .box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 90%;
-    border-radius: 5px;
-    background: #fff4dba3;
-    flex-direction: row-reverse;
-  }
-
   .container_form {
-    width: 50%;
+    width: 90%;
     background-color: var(--purple);
     height: 450px;
     display: flex;
@@ -115,23 +104,6 @@ export const ContainerRegister = styled.main`
 
     a {
       text-decoration: none;
-    }
-  }
-
-  .container_image {
-    width: 50%;
-    background-color: var(--purple);
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: 3px solid #fff4dba3;
-    box-shadow: -18px 20px 12px rgb(0 0 0 / 25%);
-
-    img {
-      width: 300px;
     }
   }
 `;

@@ -12,15 +12,23 @@ export const UserCard = ({ user }: IUserProps) => {
   // const { setCustomer, setDelCustomerModal, setEditCustomerModal } =
   //   useContext(GlobalContext);
 
+  const { setUserEdit, setEditUserModal, setDeleteUserModal } =
+    useContext(GlobalContext);
+
   // const handleClickDel = () => {
-  //   setCustomer(customer);
-  //   setDelCustomerModal(true);
+  //   setUserEdit(user);
+  //   setDelUserModal(true);
   // };
 
-  // const handleClickUpdate = () => {
-  //   setCustomer(customer);
-  //   setEditCustomerModal(true);
-  // };
+  const handleClickUpdate = () => {
+    setUserEdit(user);
+    setEditUserModal(true);
+  };
+
+  const handleClickDelete = () => {
+    setUserEdit(user);
+    setDeleteUserModal(true);
+  };
 
   return (
     <ContainerCustomer>
@@ -38,8 +46,8 @@ export const UserCard = ({ user }: IUserProps) => {
           </div>
         </div>
         <div className="info_customer_icons">
-          <FaUserEdit onClick={() => console.log()} />
-          <FaTrashAlt onClick={() => console.log()} />
+          <FaUserEdit onClick={() => handleClickUpdate()} />
+          <FaTrashAlt onClick={() => handleClickDelete()} />
         </div>
       </InfoCustomer>
     </ContainerCustomer>

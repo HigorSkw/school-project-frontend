@@ -4,8 +4,14 @@ import CompleteHeader from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
 import { MainContainer } from "./style";
 import SectionClubs from "../../components/Clubs";
+import { ModalEditUser } from "../../components/ModalEditUser";
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
+import { ModalDeleteUser } from "../../components/ModalDeleteUser";
 
 const Home = () => {
+  const { editUserModal, deleteUserModal } = useContext(GlobalContext);
+
   return (
     <div>
       <CompleteHeader />
@@ -13,6 +19,8 @@ const Home = () => {
         <SideMenu />
         <SectionTeachers />
         <SectionClubs />
+        {editUserModal && <ModalEditUser />}
+        {deleteUserModal && <ModalDeleteUser />}
       </MainContainer>
       <Footer />
     </div>

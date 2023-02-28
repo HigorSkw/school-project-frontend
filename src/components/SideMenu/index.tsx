@@ -3,13 +3,13 @@ import { GiTeacher } from "react-icons/gi";
 import { TbNotes, TbLogout } from "react-icons/tb";
 import { BsNewspaper } from "react-icons/bs";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { MenuSide } from "./style";
 import { GlobalContext } from "../../context/GlobalContext";
 
 export const SideMenu = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const { logoutUser } = useContext(GlobalContext);
+  const { logoutUser, setActiveIndex, activeIndex } = useContext(GlobalContext);
 
   function handleClick(
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -25,75 +25,75 @@ export const SideMenu = () => {
           className={`list ${activeIndex === 0 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 0)}
         >
-          <a href="#">
+          <Link to="/home">
             <span className="icon">
               <FaHome />
             </span>
             <span className="title">Home</span>
-          </a>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 1 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 1)}
         >
-          <a href="#teachers">
+          <Link to="/home/teachers">
             <span className="icon">
               <GiTeacher />
             </span>
-            <span className="title">Teachers</span>
-          </a>
+            <span className="title">Professores</span>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 2 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 2)}
         >
           {" "}
-          <a href="#students">
+          <Link to="/home/students">
             <span className="icon">
               <FaUserGraduate />
             </span>
-            <span className="title">Students</span>
-          </a>
+            <span className="title">Alunos</span>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 3 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 3)}
         >
-          <a href="#clubs">
+          <Link to="/home/clubs">
             <span className="icon">
               <FaUsers />
             </span>
-            <span className="title">Clubs</span>
-          </a>
+            <span className="title">Salas</span>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 4 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 4)}
         >
-          <a href="#grades">
+          <Link to="/home/grades">
             <span className="icon">
               <TbNotes />
             </span>
-            <span className="title">Grades</span>
-          </a>
+            <span className="title">Avaliações</span>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 5 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 5)}
         >
           {" "}
-          <a href="#subjects">
+          <Link to="/home/subjects">
             <span className="icon">
               <BsNewspaper />
             </span>
-            <span className="title">Subjects</span>
-          </a>
+            <span className="title">Matérias</span>
+          </Link>
         </li>
         <li
           className={`list ${activeIndex === 6 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 6)}
         >
-          <a href="#" onClick={() => logoutUser()}>
+          <a onClick={() => logoutUser()}>
             <span className="icon">
               <TbLogout />
             </span>
