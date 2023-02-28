@@ -1,12 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
-  
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto&display=swap');
+
   * {
     margin:0;
     padding: 0;
     outline:0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
   }
 
   :root {
@@ -22,11 +24,11 @@ export default createGlobalStyle`
   };
 
   body,html{
+    display: flex;
+    justify-content: flex-start;
     width: 100vw;
     height: 100vh;
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
 
     overflow-x: hidden;
