@@ -1,4 +1,4 @@
-import { SectionContainer } from "./style";
+import { SectionContainer, SectionNull } from "./style";
 import { UserCard } from "../UsersCards";
 import { ISubject, IUser } from "../../context/GlobalInterface";
 import { useContext } from "react";
@@ -14,10 +14,17 @@ const SectionSubjects = () => {
         <div className="wrap-contatos">
           <span className="title-customers">Lista de Matérias</span>
 
-          {subjects &&
+          {subjects ? (
             subjects.map((subject: ISubject) => (
               <SubjectCard subject={subject} key={subject.id} />
-            ))}
+            ))
+          ) : (
+            <SectionNull>
+              <div>
+                <h2>Não há matérias cadastrados!</h2>
+              </div>
+            </SectionNull>
+          )}
         </div>
       </section>
     </SectionContainer>

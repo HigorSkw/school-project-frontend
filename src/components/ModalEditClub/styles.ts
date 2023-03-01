@@ -44,7 +44,7 @@ export const DivInter = styled.div`
       color: #d7f0d7;
 
       :hover {
-        background-color: red;
+        background-color: var(--purple);
       }
     }
   }
