@@ -1,47 +1,65 @@
-# Getting Started with Create React App
+## Desafio - Gerenciador de Escola - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div style="display: inline_block"><br/>
+    <img align="center" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white/" alt="html5" />
+    <img align="center" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E/" alt="js" />
+    <img align="center" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript" />
+    <img align="center" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB/" alt="react" />  
+    <img align="center" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white/" alt="css3" />
+    <img align="center" alt="styledcomponents" src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+    <img align="center" alt="react-router" src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/>
+    <img align="center" alt="ts" src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+    <img align="center" alt="node" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"/>
+    <img align="center" alt="express" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"/>
+    <img align="center" alt="postgres" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/>
+    <img align="center" alt="vscode" src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"/>
+    <img align="center" alt="git" src="https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white"/>
+    <img align="center" alt="github" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/>
+</div>
+<br/>
+<br?
 
-## Available Scripts
 
-In the project directory, you can run:
+# Executando o Projeto
 
-### `yarn start`
+- Para iniciar a aplicação, é necessário realizar os seguintes passos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Faça o clone deste repositório:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Faça a instalação das dependências
+```bash
+yarn 
+```
 
-### `yarn test`
+3. Execute o repositório back-end desta aplicação - url: https://github.com/HigorSkw/school-project-backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Execute esta aplicação 
 
-### `yarn build`
+```bash
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Por enquanto, foi criado apenas uma história (admin), os outros 2 acessos (teacher e student), serão feitos posteriormente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+Fique a vontade para entrar em contato comigo para um possível feedback ;)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Spoiler do projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<div style="display: inline-block">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/login-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/register-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/home-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/clubs-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/grades-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/modal-delete.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/modal-edit.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/students-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/subjects-page.JPG" alt="clubs-page">
+    <img width="48%" src="https://github.com/HigorSkw/school-project-frontend/blob/main/src/assets/spoiler/teachers-page.JPG" alt="clubs-page">
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-# school-project-frontend
+</div>
