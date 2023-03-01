@@ -6,7 +6,7 @@ import * as yup from "yup";
 
 import { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { IClub } from "../../context/GlobalInterface";
+import { IClub, IUserRegister } from "../../context/GlobalInterface";
 
 export const RegisterComponent = (): JSX.Element => {
   const { createClub, subjects } = useContext(GlobalContext);

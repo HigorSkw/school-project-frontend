@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { GlobalContext } from "../../../context/GlobalContext";
 import { RegisterComponent } from "../../../components/CreateSubject";
 import SectionSubjects from "../../../components/Subjects";
-import { ModalEditSubject } from "../../../components/ModalEditSuject";
+import { ModalEditSubject } from "../../../components/ModalEditSubject";
 import { ModalDeleteSubject } from "../../../components/ModalDeleteSubject";
 
 const HomeSubjects = () => {

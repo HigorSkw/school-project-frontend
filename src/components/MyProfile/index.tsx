@@ -1,4 +1,4 @@
-import SectionClubs from "../Clubs";
+import SectionClubs from "../SectionClubs";
 import SectionTeachers from "../Teachers";
 
 const MyProfile = () => {

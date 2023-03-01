@@ -1,7 +1,6 @@
 import { SectionContainer } from "./style";
-import { UserCard } from "../UsersCards";
-import { IClub, ISubject, IUser } from "../../context/GlobalInterface";
-import { useContext, useState } from "react";
+import { IClub } from "../../context/GlobalInterface";
+import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { ClubCard } from "../ClubsCards";
 

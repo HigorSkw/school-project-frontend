@@ -45,6 +45,16 @@ export interface IGlobalContext {
   deleteClubModal: boolean;
   setDeleteClubModal: React.Dispatch<React.SetStateAction<boolean>>;
   deleteClub: () => Promise<void>;
+  createGrade: (data: IGrade) => Promise<void>;
+  grades: IGrade[] | undefined;
+  grade: IGrade | undefined;
+  setGrade: React.Dispatch<React.SetStateAction<IGrade | undefined>>;
+  editGrade: (data: IGrade) => Promise<void>;
+  deleteGrade: () => Promise<void>;
+  deleteGradeModal: boolean;
+  setDeleteGradeModal: React.Dispatch<React.SetStateAction<boolean>>;
+  editGradeModal: boolean;
+  setEditGradeModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IUserLogin {

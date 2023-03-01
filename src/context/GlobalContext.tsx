@@ -8,6 +8,7 @@ import {
   IClub,
   IEditUser,
   IGlobalContext,
+  IGrade,
   ISubject,
   ISubjectCreate,
   IUser,
@@ -44,6 +45,11 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
   const [editClubModal, setEditClubModal] = useState<boolean>(false);
   const [deleteClubModal, setDeleteClubModal] = useState<boolean>(false);
   const [club, setClub] = useState<IClub>();
+  const [grades, setGrades] = useState<IGrade[]>();
+  const [grade, setGrade] = useState<IGrade>();
+
+  const [deleteGradeModal, setDeleteGradeModal] = useState<boolean>(false);
+  const [editGradeModal, setEditGradeModal] = useState<boolean>(false);
 
   const token = localStorage.getItem("@school-token");
 
@@ -58,6 +64,7 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       getUsers();
       getClubs();
       getSubjects();
+      getGrades();
     }
   }, [token]);
 
@@ -312,6 +319,73 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       });
   };
 
+  const createGrade = async (data: IGrade) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .post(`/grades/`, data)
+      .then((res) => {
+        toast.success("Avaliação Criada com sucesso!");
+        getSubjects();
+        getClubs();
+        getGrades();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const getGrades = () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    api
+      .get(`/grades/`)
+      .then((res) => {
+        setGrades(res.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const editGrade = async (data: IGrade) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .patch(`/grades/${grade?.id}/`, data)
+      .then((res) => {
+        toast.success("Avaliação Atualizada com sucesso!");
+        getSubjects();
+        getClubs();
+        getGrades();
+        setEditGradeModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const deleteGrade = async () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .delete(`/grades/${grade?.id}`)
+      .then((res) => {
+        toast.success("Avaliação Deletada com sucesso!");
+        getSubjects();
+        getClubs();
+        getGrades();
+        setDeleteGradeModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -355,6 +429,16 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
         deleteClubModal,
         setDeleteClubModal,
         deleteClub,
+        createGrade,
+        grades,
+        deleteGrade,
+        editGrade,
+        grade,
+        setGrade,
+        deleteGradeModal,
+        editGradeModal,
+        setDeleteGradeModal,
+        setEditGradeModal,
       }}
     >
       {children}
