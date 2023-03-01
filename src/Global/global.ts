@@ -51,14 +51,23 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  ::-webkit-scrollbar-track {
-    background-color: #1d1d1d;
-    width: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: red;
-    border-radius: 5px;
-  }
+  * {
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--purple);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray-medium);
+  border-radius: 20px;
+  border: 1px solid var(--blue-medium);
+}
 `;

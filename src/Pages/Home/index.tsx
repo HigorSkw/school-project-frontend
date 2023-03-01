@@ -8,9 +8,12 @@ import { ModalEditUser } from "../../components/ModalEditUser";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import { ModalDeleteUser } from "../../components/ModalDeleteUser";
+import { ModalEditClub } from "../../components/ModalEditClub";
+import { ModalDeleteClub } from "../../components/ModalDeleteClub";
 
 const Home = () => {
-  const { editUserModal, deleteUserModal } = useContext(GlobalContext);
+  const { editUserModal, deleteUserModal, editClubModal, deleteClubModal } =
+    useContext(GlobalContext);
 
   return (
     <div>
@@ -21,6 +24,8 @@ const Home = () => {
         <SectionClubs />
         {editUserModal && <ModalEditUser />}
         {deleteUserModal && <ModalDeleteUser />}
+        {editClubModal && <ModalEditClub />}
+        {deleteClubModal && <ModalDeleteClub />}
       </MainContainer>
       <Footer />
     </div>

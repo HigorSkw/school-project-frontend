@@ -93,12 +93,12 @@ export const SideMenu = () => {
           className={`list ${activeIndex === 6 ? "active" : ""}`}
           onClick={(event) => handleClick(event, 6)}
         >
-          <a onClick={() => logoutUser()}>
+          <Link to="/" onClick={() => logoutUser()}>
             <span className="icon">
               <TbLogout />
             </span>
             <span className="title">Logout</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </MenuSide>

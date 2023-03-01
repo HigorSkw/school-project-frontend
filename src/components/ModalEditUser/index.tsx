@@ -9,15 +9,6 @@ import { IEditUser } from "../../context/GlobalInterface";
 
 const schema = yup.object({
   name: yup.string(),
-  password: yup
-    .string()
-    .matches(
-      /(^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*_-])).{8,}$/,
-      "Ex: Aa@12345678."
-    ),
-  confirm_password: yup
-    .string()
-    .oneOf([yup.ref("password")], "Confirmação deve ser iguar a senha"),
 });
 
 export const ModalEditUser = () => {
@@ -55,24 +46,6 @@ export const ModalEditUser = () => {
             {...register("name")}
           />
           <Perrors>{errors?.name?.message}</Perrors>
-
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="senha"
-            placeholder="Nova Senha!"
-            {...register("password")}
-          />
-          <Perrors>{errors?.password?.message}</Perrors>
-
-          <label htmlFor="confirm_password">Senha</label>
-          <input
-            type="password"
-            id="confirm_password"
-            placeholder="Confirmar Nova Senha!"
-            {...register("confirm_password")}
-          />
-          <Perrors>{errors?.password?.message}</Perrors>
 
           <div className="div_btns">
             <button className="btn_confirm" type="submit">

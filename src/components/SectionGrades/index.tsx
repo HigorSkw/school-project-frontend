@@ -1,8 +1,7 @@
-import { SectionContainer } from "./style";
-import { IClub, IGrade } from "../../context/GlobalInterface";
+import { SectionContainer, SectionNull } from "./style";
+import { IGrade } from "../../context/GlobalInterface";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { ClubCard } from "../ClubsCards";
 import { GradeCard } from "../GradesCards";
 
 const SectionGrades = () => {
@@ -14,10 +13,17 @@ const SectionGrades = () => {
         <div className="wrap-contatos">
           <span className="title-customers">Lista de Avaliações</span>
 
-          {grades &&
+          {grades ? (
             grades.map((grade: IGrade) => (
               <GradeCard grade={grade} key={grade.id} />
-            ))}
+            ))
+          ) : (
+            <SectionNull>
+              <div>
+                <h2>Não há avaliações cadastradas!</h2>
+              </div>
+            </SectionNull>
+          )}
         </div>
       </section>
     </SectionContainer>

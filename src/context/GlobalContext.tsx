@@ -240,6 +240,8 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
     const token = localStorage.getItem("@school-token");
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
+    console.log(data);
+
     api
       .patch(`users/${userEdit?.id}/`, data)
       .then((res) => {

@@ -46,3 +46,27 @@ export const SectionContainer = styled.section`
     gap: 1rem;
   }
 `;
+
+export const SectionNull = styled.section`
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 70%;
+      color: #9da6ff;
+    }
+  }
+`;

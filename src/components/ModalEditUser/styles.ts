@@ -21,7 +21,7 @@ export const DivInter = styled.div`
   align-items: center;
 
   width: 18rem;
-  height: 24rem;
+  height: 15rem;
 
   background: #fefefe;
   border: 3px solid var(--purple);
@@ -44,7 +44,7 @@ export const DivInter = styled.div`
       color: #d7f0d7;
 
       :hover {
-        background-color: red;
+        background-color: var(--purple);
       }
     }
   }
