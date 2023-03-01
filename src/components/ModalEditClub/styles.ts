@@ -21,7 +21,7 @@ export const DivInter = styled.div`
   align-items: center;
 
   width: 18rem;
-  height: 15rem;
+  height: 24rem;
 
   background: #fefefe;
   border: 3px solid var(--purple);
@@ -80,10 +80,10 @@ export const FormEvent = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   gap: 4px;
-  font-weight: 600;
+  font-weight: 500;
 
   color: black;
 

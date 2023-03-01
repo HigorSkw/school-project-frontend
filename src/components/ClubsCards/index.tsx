@@ -9,7 +9,8 @@ interface IClubProps {
 }
 
 export const ClubCard = ({ club }: IClubProps) => {
-  const { subjects } = useContext(GlobalContext);
+  const { subjects, setEditClubModal, setClub, setDeleteClubModal } =
+    useContext(GlobalContext);
 
   const filterSubjects = (data: IClub) => {
     let subjectsArr: ISubject[] = [];
@@ -38,6 +39,16 @@ export const ClubCard = ({ club }: IClubProps) => {
   const subjectsFind = filterSubjects(club);
   const shiftFind = findShift(club);
 
+  const handleClickEdit = (club: IClub) => {
+    setClub(club);
+    setEditClubModal(true);
+  };
+
+  const handleClickDelete = (club: IClub) => {
+    setClub(club);
+    setDeleteClubModal(true);
+  };
+
   return (
     <ContainerCustomer>
       <NameCustomer>
@@ -59,8 +70,8 @@ export const ClubCard = ({ club }: IClubProps) => {
           </div>
         </div>
         <div className="info_customer_icons">
-          <FaUserEdit onClick={() => console.log()} />
-          <FaTrashAlt onClick={() => console.log()} />
+          <FaUserEdit onClick={() => handleClickEdit(club)} />
+          <FaTrashAlt onClick={() => handleClickDelete(club)} />
         </div>
       </InfoCustomer>
     </ContainerCustomer>

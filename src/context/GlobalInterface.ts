@@ -28,6 +28,23 @@ export interface IGlobalContext {
   deleteUserModal: boolean;
   setDeleteUserModal: React.Dispatch<React.SetStateAction<boolean>>;
   createSubjects: (data: ISubjectCreate) => Promise<void>;
+  editSubjectModal: boolean;
+  setEditSubjectModal: React.Dispatch<React.SetStateAction<boolean>>;
+  deleteSubjectModal: boolean;
+  setDeleteSubjectModal: React.Dispatch<React.SetStateAction<boolean>>;
+  subject: ISubject | undefined;
+  setSuject: React.Dispatch<React.SetStateAction<ISubject | undefined>>;
+  editSubject: (data: ISubjectCreate) => void;
+  deleteSubject: () => void;
+  createClub: (data: IClub) => Promise<void>;
+  editClubModal: boolean;
+  setEditClubModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setClub: React.Dispatch<React.SetStateAction<IClub | undefined>>;
+  editClub: (data: IClub) => Promise<void>;
+  club: IClub | undefined;
+  deleteClubModal: boolean;
+  setDeleteClubModal: React.Dispatch<React.SetStateAction<boolean>>;
+  deleteClub: () => Promise<void>;
 }
 
 export interface IUserLogin {
@@ -69,7 +86,7 @@ export interface IGrade {
 }
 
 export interface IClub {
-  id: string;
+  id?: string;
   name: string;
   year: string;
   shift: string;

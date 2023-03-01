@@ -30,19 +30,21 @@ export const RegisterComponent = (): JSX.Element => {
     <ContainerRegister>
       <div className="container_form">
         <form onSubmit={handleSubmit(createSubjects)}>
-          <h2>Criação Matéria</h2>
-          <p>Professor(a) Responsável:</p>
+          <h2>Criação de Matéria</h2>
           {teachersAvailable?.length === 0 ? (
             <h3>Não há professores disponíveis no momento.</h3>
           ) : (
-            <select id="teacher" {...register("teacher")}>
-              <option value="">Selecione um professor</option>
-              {teachersAvailable?.map((elem) => (
-                <option value={elem.id} key={elem.id}>
-                  {elem.name}
-                </option>
-              ))}
-            </select>
+            <>
+              <p>Professor(a) Responsável:</p>
+              <select id="teacher" {...register("teacher")}>
+                <option value="">Selecione um professor</option>
+                {teachersAvailable?.map((elem) => (
+                  <option value={elem.id} key={elem.id}>
+                    {elem.name}
+                  </option>
+                ))}
+              </select>
+            </>
           )}
 
           {teachersAvailable?.length !== 0 && (

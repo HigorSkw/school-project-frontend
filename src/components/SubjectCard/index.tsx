@@ -9,18 +9,21 @@ interface IUserProps {
 }
 
 export const SubjectCard = ({ subject }: IUserProps) => {
-  const { setUserEdit, setEditUserModal, setDeleteUserModal } =
+  // const { setUserEdit, setEditUserModal, setDeleteUserModal } =
+  //   useContext(GlobalContext);
+
+  const { setSuject, setEditSubjectModal, setDeleteSubjectModal } =
     useContext(GlobalContext);
 
-  // const handleClickUpdate = () => {
-  //   setUserEdit(user);
-  //   setEditUserModal(true);
-  // };
+  const handleClickUpdate = () => {
+    setSuject(subject);
+    setEditSubjectModal(true);
+  };
 
-  // const handleClickDelete = () => {
-  //   setUserEdit(user);
-  //   setDeleteUserModal(true);
-  // };
+  const handleClickDelete = () => {
+    setSuject(subject);
+    setDeleteSubjectModal(true);
+  };
 
   return (
     <ContainerCustomer>
@@ -36,8 +39,8 @@ export const SubjectCard = ({ subject }: IUserProps) => {
           </div>
         </div>
         <div className="info_customer_icons">
-          <FaUserEdit onClick={() => console.log("a")} />
-          <FaTrashAlt onClick={() => console.log("b")} />
+          <FaUserEdit onClick={() => handleClickUpdate()} />
+          <FaTrashAlt onClick={() => handleClickDelete()} />
         </div>
       </InfoCustomer>
     </ContainerCustomer>
