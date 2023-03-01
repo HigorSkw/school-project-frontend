@@ -2,29 +2,31 @@ import { Footer } from "../../../components/Footer";
 import CompleteHeader from "../../../components/Header";
 import { SideMenu } from "../../../components/SideMenu";
 import { MainContainer } from "./style";
-import SectionClubs from "../../../components/SectionClubs";
 import { useContext } from "react";
 import { GlobalContext } from "../../../context/GlobalContext";
-import { RegisterComponent } from "../../../components/CreateClub";
+import { RegisterComponent } from "../../../components/CreateGrade";
 import { ModalEditClub } from "../../../components/ModalEditClub";
 import { ModalDeleteClub } from "../../../components/ModalDeleteClub";
+import SectionGrades from "../../../components/SectionGrades";
+import { ModalDeleteGrade } from "../../../components/ModalDeleteGrade";
+import { ModalEditGrade } from "../../../components/ModalEditGrade";
 
-const HomeClubs = () => {
-  const { editClubModal, deleteClubModal } = useContext(GlobalContext);
+const HomeGrades = () => {
+  const { editGradeModal, deleteGradeModal } = useContext(GlobalContext);
 
   return (
     <div>
       <CompleteHeader />
       <MainContainer>
         <SideMenu />
-        <SectionClubs />
+        <SectionGrades />
         <RegisterComponent />
-        {editClubModal && <ModalEditClub />}
-        {deleteClubModal && <ModalDeleteClub />}
+        {editGradeModal && <ModalEditGrade />}
+        {deleteGradeModal && <ModalDeleteGrade />}
       </MainContainer>
       <Footer />
     </div>
   );
 };
 
-export default HomeClubs;
+export default HomeGrades;

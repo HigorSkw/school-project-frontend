@@ -21,12 +21,39 @@ export const DivInter = styled.div`
   align-items: center;
 
   width: 18rem;
-  height: 24rem;
+  height: 10rem;
 
   background: #fefefe;
   border: 3px solid var(--purple);
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
+
+  .div_text {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    button {
+      align-self: center;
+      border: none;
+      width: 10rem;
+      height: 2rem;
+
+      margin-top: 20px;
+      background: #333333;
+      border-radius: 100px;
+
+      color: white;
+      font-size: 14px;
+    }
+  }
+
+  h4 {
+    color: #000;
+  }
 
   .div_btns {
     display: flex;
@@ -37,14 +64,18 @@ export const DivInter = styled.div`
 
     .btn_confirm {
       width: 40%;
-      color: #d7f0d7;
-    }
-    .btn_cancel {
-      width: 40%;
-      color: #d7f0d7;
+      color: #000;
 
       :hover {
         background-color: red;
+      }
+    }
+    .btn_cancel {
+      width: 40%;
+      color: #000;
+
+      :hover {
+        background-color: gray;
       }
     }
   }
@@ -74,66 +105,4 @@ export const Divheader = styled.div`
     color: white;
     font-size: 16px;
   }
-`;
-
-export const FormEvent = styled.form`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  gap: 4px;
-  font-weight: 500;
-
-  color: black;
-
-  p {
-    margin-left: 5px;
-    font-size: 12px;
-  }
-
-  select {
-    width: 16rem;
-    height: 2rem;
-    background: #ffffff;
-    border: 1.5px solid var(--purple);
-    border-radius: 5px;
-    font-size: 14px;
-    padding-left: 5px;
-  }
-
-  input {
-    width: 16rem;
-    height: 2rem;
-
-    background: #ffffff;
-    border: 1.5px solid var(--purple);
-    border-radius: 5px;
-    font-size: 14px;
-    padding-left: 5px;
-  }
-  label {
-    margin-left: 5px;
-    font-size: 14px;
-  }
-  button {
-    align-self: center;
-    border: none;
-    width: 10rem;
-    height: 2rem;
-
-    margin-top: 20px;
-    background: #333333;
-    border-radius: 100px;
-
-    color: white;
-    font-size: 14px;
-  }
-  button:hover {
-    background-color: green;
-  }
-`;
-export const Perrors = styled.p`
-  font-size: 12px;
-  color: red;
 `;

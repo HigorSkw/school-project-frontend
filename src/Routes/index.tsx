@@ -7,6 +7,7 @@ import HomeTeachers from "../Pages/Home/teachers/";
 import HomeStudents from "../Pages/Home/students";
 import HomeSubjects from "../Pages/Home/subjects";
 import HomeClubs from "../Pages/Home/clubs";
+import HomeGrades from "../Pages/Home/grades";
 
 export const RoutesMain = () => {
   return (
@@ -15,7 +16,7 @@ export const RoutesMain = () => {
       <Route path="/home/teachers" element={<HomeTeachers />} />
       <Route path="/home/students" element={<HomeStudents />} />
       <Route path="/home/clubs" element={<HomeClubs />} />
-      <Route path="/home/grades" element={<Home />} />
+      <Route path="/home/grades" element={<HomeGrades />} />
       <Route path="/home/subjects" element={<HomeSubjects />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />

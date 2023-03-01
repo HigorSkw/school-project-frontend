@@ -3,7 +3,7 @@ import SectionTeachers from "../../components/Teachers";
 import CompleteHeader from "../../components/Header";
 import { SideMenu } from "../../components/SideMenu";
 import { MainContainer } from "./style";
-import SectionClubs from "../../components/Clubs";
+import SectionClubs from "../../components/SectionClubs";
 import { ModalEditUser } from "../../components/ModalEditUser";
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";

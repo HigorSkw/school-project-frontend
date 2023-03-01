@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const ContainerLogin = styled.main`
-  width: 100vw;
-  height: 100vh;
+export const ContainerRegister = styled.div`
+  width: 40%;
+  /* height: 100vh; */
 
   display: flex;
   align-items: center;
@@ -12,18 +12,8 @@ export const ContainerLogin = styled.main`
   background-color: var(--purple);
   overflow: hidden;
 
-  .box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    width: 90%;
-    border-radius: 5px;
-    background: #fff4dba3;
-  }
-
   .container_form {
-    width: 50%;
+    width: 90%;
     background-color: var(--purple);
     height: 450px;
     display: flex;
@@ -32,10 +22,15 @@ export const ContainerLogin = styled.main`
     justify-content: center;
     border-radius: 10px;
     border: 3px solid #fff4dba3;
-    box-shadow: -18px 20px 12px rgb(0 0 0 / 25%);
+    box-shadow: 20px -8px 12px rgb(0 0 0 / 25%);
 
     span {
       font-size: 0.7rem;
+      color: #6d1414;
+    }
+
+    h3 {
+      font-size: 1.3rem;
       color: #6d1414;
     }
   }
@@ -46,6 +41,25 @@ export const ContainerLogin = styled.main`
     flex-direction: column;
     align-items: stretch;
     height: 85%;
+    margin: 5px;
+
+    select {
+      width: 260px;
+      height: 35px;
+      border-radius: 10px;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+      padding-left: 15px;
+
+      option {
+        width: 260px;
+        height: 35px;
+        border-radius: 10px;
+        font-size: 1rem;
+        padding-left: 15px;
+      }
+    }
   }
 
   h2 {
@@ -56,7 +70,7 @@ export const ContainerLogin = styled.main`
   }
 
   label {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   input {
@@ -82,38 +96,19 @@ export const ContainerLogin = styled.main`
 
   .register {
     display: flex;
-    flex-direction: row;
-    height: 10px;
+    flex-direction: column;
+    height: 150px;
     justify-content: center;
     align-items: center;
 
     span {
-      font-size: 1rem;
-      color: var(--gray-light);
+      font-size: 14px;
       font-weight: 500;
+      color: black;
     }
 
     a {
       text-decoration: none;
-      margin-left: 5px;
-      font-weight: 700;
-    }
-  }
-
-  .container_image {
-    width: 50%;
-    background-color: var(--purple);
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    border: 3px solid #fff4dba3;
-    box-shadow: 20px -8px 12px rgb(0 0 0 / 25%);
-
-    img {
-      width: 300px;
     }
   }
 `;

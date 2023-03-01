@@ -102,19 +102,21 @@ export const ContainerRegister = styled.main`
 
   .register {
     display: flex;
-    flex-direction: column;
-    height: 150px;
+    flex-direction: row;
+    height: 10px;
     justify-content: center;
     align-items: center;
 
     span {
-      font-size: 14px;
+      font-size: 1rem;
+      color: var(--gray-light);
       font-weight: 500;
-      color: black;
     }
 
     a {
       text-decoration: none;
+      margin-left: 5px;
+      font-weight: 700;
     }
   }
 

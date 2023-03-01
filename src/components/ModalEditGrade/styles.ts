@@ -21,7 +21,7 @@ export const DivInter = styled.div`
   align-items: center;
 
   width: 18rem;
-  height: 24rem;
+  height: 15rem;
 
   background: #fefefe;
   border: 3px solid var(--purple);
@@ -80,10 +80,10 @@ export const FormEvent = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   gap: 4px;
-  font-weight: 500;
+  font-weight: 600;
 
   color: black;
 
@@ -91,17 +91,6 @@ export const FormEvent = styled.form`
     margin-left: 5px;
     font-size: 12px;
   }
-
-  select {
-    width: 16rem;
-    height: 2rem;
-    background: #ffffff;
-    border: 1.5px solid var(--purple);
-    border-radius: 5px;
-    font-size: 14px;
-    padding-left: 5px;
-  }
-
   input {
     width: 16rem;
     height: 2rem;

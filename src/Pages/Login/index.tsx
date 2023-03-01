@@ -13,6 +13,8 @@ import { IUserLogin } from "../../context/GlobalInterface";
 const Login = () => {
   const { loginUser } = useContext(GlobalContext);
 
+  window.localStorage.clear();
+
   const navigate = useNavigate();
 
   const loginSchema = yup.object().shape({
@@ -57,7 +59,7 @@ const Login = () => {
             <button type="submit">Login</button>
           </form>
           <div className="register">
-            <span>Já possui uma conta? </span>
+            <span>Não possui uma conta? </span>
             <Link to={"/register"}>Registrar!</Link>
           </div>
         </div>

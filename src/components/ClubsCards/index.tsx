@@ -23,7 +23,7 @@ export const ClubCard = ({ club }: IClubProps) => {
       });
     });
 
-    return subjectsArr; // Adicionando o retorno da função
+    return subjectsArr;
   };
 
   const findShift = (data: IClub) => {
