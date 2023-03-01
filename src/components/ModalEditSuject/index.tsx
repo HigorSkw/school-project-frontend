@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 import { DivModal, DivInter, Divheader, FormEvent, Perrors } from "./styles";
 import { GlobalContext } from "../../context/GlobalContext";
-import { ISubject } from "../../context/GlobalInterface";
+import { ISubjectCreate } from "../../context/GlobalInterface";
 
 const schema = yup.object({
   name: yup.string(),
@@ -16,11 +16,12 @@ export const ModalEditSubject = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ISubject>({
+  } = useForm<ISubjectCreate>({
     resolver: yupResolver(schema),
   });
 
-  const { editUser, setEditUserModal, userEdit } = useContext(GlobalContext);
+  const { editSubject, setEditSubjectModal, subject } =
+    useContext(GlobalContext);
 
   return (
     <DivModal>
@@ -30,15 +31,15 @@ export const ModalEditSubject = () => {
           <button
             type="button"
             onClick={() => {
-              setEditUserModal(false);
+              setEditSubjectModal(false);
             }}
           >
             X
           </button>
         </Divheader>
 
-        <FormEvent onSubmit={handleSubmit(editUser)}>
-          <label htmlFor="name">Nome</label>
+        <FormEvent onSubmit={handleSubmit(editSubject)}>
+          <label htmlFor="name">Nome da Matéria</label>
           <input
             type="text"
             id="name"
@@ -49,11 +50,11 @@ export const ModalEditSubject = () => {
 
           <div className="div_btns">
             <button className="btn_confirm" type="submit">
-              Editar
+              Atualizar
             </button>
             <button
               className="btn_cancel"
-              onClick={() => setEditUserModal(false)}
+              onClick={() => setEditSubjectModal(false)}
             >
               Cancelar
             </button>

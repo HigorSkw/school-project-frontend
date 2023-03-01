@@ -37,6 +37,13 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
   const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
+  const [editSubjectModal, setEditSubjectModal] = useState<boolean>(false);
+  const [deleteSubjectModal, setDeleteSubjectModal] = useState<boolean>(false);
+  const [subject, setSuject] = useState<ISubject>();
+
+  const [editClubModal, setEditClubModal] = useState<boolean>(false);
+  const [deleteClubModal, setDeleteClubModal] = useState<boolean>(false);
+  const [club, setClub] = useState<IClub>();
 
   const token = localStorage.getItem("@school-token");
 
@@ -188,6 +195,40 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       });
   };
 
+  const editSubject = (data: ISubjectCreate) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    api
+      .patch(`/subjects/${subject?.id}/`, data)
+      .then((res) => {
+        toast.success("Matéria Atualizada com sucesso!");
+        setEditSubjectModal(false);
+        getSubjects();
+        getUsers();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const deleteSubject = () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    api
+      .delete(`/subjects/${subject?.id}/`)
+      .then((res) => {
+        toast.success("Matéria Deletada com sucesso!");
+        setDeleteSubjectModal(false);
+        getSubjects();
+        getUsers();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
   const editUser = (data: IEditUser) => {
     const token = localStorage.getItem("@school-token");
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -221,6 +262,56 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
       });
   };
 
+  const createClub = async (data: IClub) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .post(`/clubs/`, data)
+      .then((res) => {
+        toast.success("Classe Criada com sucesso!");
+        getSubjects();
+        getClubs();
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const editClub = async (data: IClub) => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .patch(`/clubs/${club?.id}/`, data)
+      .then((res) => {
+        toast.success("Classe Atualizada com sucesso!");
+        getSubjects();
+        getClubs();
+        setEditClubModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
+  const deleteClub = async () => {
+    const token = localStorage.getItem("@school-token");
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await api
+      .delete(`/clubs/${club?.id}/`)
+      .then((res) => {
+        toast.success("Classe Deletada com sucesso!");
+        getSubjects();
+        getClubs();
+        setDeleteClubModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Algo errado!");
+      });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -247,6 +338,23 @@ export const GlobalProvider = ({ children }: IAuthProviderProps) => {
         setDeleteUserModal,
         registerUserComponent,
         createSubjects,
+        deleteSubjectModal,
+        editSubjectModal,
+        setDeleteSubjectModal,
+        setEditSubjectModal,
+        setSuject,
+        subject,
+        editSubject,
+        deleteSubject,
+        createClub,
+        editClubModal,
+        setEditClubModal,
+        setClub,
+        editClub,
+        club,
+        deleteClubModal,
+        setDeleteClubModal,
+        deleteClub,
       }}
     >
       {children}
